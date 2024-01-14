@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./chus.css">
+    <title>Documento con una etiqueta main</title>
+</head>
+
+<body>
+    <header>
+        <a href="">Logo</a>
+        <button>Iniciar sesión</button>
+    </header>
+
+    <main>
+        <section>
+            <h1>What is chus.css?</h1>
+            <p>A light solution to my CSS skill issues as a backend developer, enabling me to build visually appealing
+                websites with a unique touch of personal design flair, or at least, I believe so.</p>
+            <p>I took some ideas from <a href="https://github.com/kognise/water.css/tree/master">water.css</a> and <a href="https://simplecss.org/">simple.css</a>.</p>
+        </section>
+        <section>
+            <h2>Layout</h2>
+            <p>The layout is based on a 600px width body that contains a header, main and footer. Body and main tag are
+                centered with flexbox.</p>
+        </section>
+        <section>
+            <h2>Buttons</h2>
+            <p>Black and simple. One is active, the other is disabled</p>
+            <button>Active</button>
+            <button disabled>Disabled</button>
+        </section>
+        <section>
+            <h2>Lists</h2>
+            <p>Look at this awesome simple black and white list</p>
+            <ul>
+                <li>Zapabunga!</li>
+                <li>Petrocombo!</li>
+                <li>Treparamas!</li>
+                <li>Catalejo!</li>
+                <li>Mozirrante!</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Tables</h2>
+            <p>A table with columns and rows</p>
+            <table class="full">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Animal</th>
+                        <th style="text-align: end;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pelusilla</td>
+                        <td>Cat</td>
+                        <td style="text-align: end;">
+                            <a href="">✏️</a>
+                            <a href="">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bolo</td>
+                        <td>Dog</td>
+                        <td style="text-align: end;">
+                            <a href="">✏️</a>
+                            <a href="">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trocito</td>
+                        <td>Rabbit</td>
+                        <td style="text-align: end;">
+                            <a href="">✏️</a>
+                            <a href="">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cosita</td>
+                        <td>Ferret</td>
+                        <td style="text-align: end;">
+                            <a href="">✏️</a>
+                            <a href="">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Juan</td>
+                        <td>Guinea Pig</td>
+                        <td style="text-align: end;">
+                            <a href="">✏️</a>
+                            <a href="">❌</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Grids</h2>
+            <p>I love grids and this one have only 3 lines of CSS</p>
+            <div class="grid">
+                <img src="https://picsum.photos/1280/720" alt="" class="bordered">
+                <img src="https://picsum.photos/1600/900" alt="" class="bordered">
+                <img src="https://picsum.photos/1366/768" alt="" class="bordered">
+                <img src="https://picsum.photos/1152/648" alt="" class="bordered">
+                <img src="https://picsum.photos/1024/576" alt="" class="bordered">
+                <img src="https://picsum.photos/960/540" alt="" class="bordered">
+            </div>
+        </section>
+        <section>
+            <h2>Forms</h2>
+            <p>Labels and inputs with perfect spacing</p>
+            <form onsubmit="return false;">
+                <label for="text">
+                    Favourite food
+                    <input type="text" name="text" placeholder="Cookies, bananas, sand...">
+                </label>
+
+                <label for="textarea">
+                    Prove you are not a cat
+                    <textarea name="textarea" cols="30" rows="10" placeholder="Meow meow meow"></textarea>
+                </label>
+
+                <input type="submit" value="Check if I am a cat">
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <a href="">Privacy</a>
+        <span>© Copyright 2024</span>
+    </footer>
+</body>
+
+</html>
