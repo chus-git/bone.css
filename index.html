@@ -9,128 +9,138 @@
 </head>
 
 <body>
-    <header>
-        <a href="">Logo</a>
-        <button>Iniciar sesión</button>
+
+    <header
+        style="display: flex; justify-content: center; align-items: center; width: 100%; height:200px; flex-direction: column;">
+        <h1 style="margin: 0;">chus.dev</h1>
+        <ul style="display: flex; gap: 20px; list-style: none; padding: 0;">
+            <li><a href="">Home</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
     </header>
 
     <main>
-        <section>
-            <h1>What is chus.css?</h1>
-            <p>A light solution to my CSS skill issues as a backend developer, enabling me to build visually appealing
-                websites with a unique touch of personal design flair, or at least, I believe so.</p>
-            <p>I took some ideas from <a href="https://github.com/kognise/water.css/tree/master">water.css</a> and <a href="https://simplecss.org/">simple.css</a>.</p>
-        </section>
-        <section>
-            <h2>Layout</h2>
-            <p>The layout is based on a 600px width body that contains a header, main and footer. Body and main tag are
-                centered with flexbox.</p>
-        </section>
-        <section>
-            <h2>Buttons</h2>
-            <p>Black and simple. One is active, the other is disabled</p>
-            <button>Active</button>
-            <button disabled>Disabled</button>
-        </section>
-        <section>
-            <h2>Lists</h2>
-            <p>Look at this awesome simple black and white list</p>
-            <ul>
-                <li>Zapabunga!</li>
-                <li>Petrocombo!</li>
-                <li>Treparamas!</li>
-                <li>Catalejo!</li>
-                <li>Mozirrante!</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Tables</h2>
-            <p>A table with columns and rows</p>
-            <table class="full">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Animal</th>
-                        <th style="text-align: end;">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Pelusilla</td>
-                        <td>Cat</td>
-                        <td style="text-align: end;">
-                            <a href="">✏️</a>
-                            <a href="">❌</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bolo</td>
-                        <td>Dog</td>
-                        <td style="text-align: end;">
-                            <a href="">✏️</a>
-                            <a href="">❌</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trocito</td>
-                        <td>Rabbit</td>
-                        <td style="text-align: end;">
-                            <a href="">✏️</a>
-                            <a href="">❌</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Cosita</td>
-                        <td>Ferret</td>
-                        <td style="text-align: end;">
-                            <a href="">✏️</a>
-                            <a href="">❌</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Juan</td>
-                        <td>Guinea Pig</td>
-                        <td style="text-align: end;">
-                            <a href="">✏️</a>
-                            <a href="">❌</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h2>Grids</h2>
-            <p>I love grids and this one have only 3 lines of CSS</p>
-            <div class="grid">
-                <img src="https://picsum.photos/1280/720" alt="" class="bordered">
-                <img src="https://picsum.photos/1600/900" alt="" class="bordered">
-                <img src="https://picsum.photos/1366/768" alt="" class="bordered">
-                <img src="https://picsum.photos/1152/648" alt="" class="bordered">
-                <img src="https://picsum.photos/1024/576" alt="" class="bordered">
-                <img src="https://picsum.photos/960/540" alt="" class="bordered">
-            </div>
-        </section>
-        <section>
-            <h2>Forms</h2>
-            <p>Labels and inputs with perfect spacing</p>
-            <form onsubmit="return false;">
-                <label for="text">
-                    Favourite food
-                    <input type="text" name="text" placeholder="Cookies, bananas, sand...">
-                </label>
-
-                <label for="textarea">
-                    Prove you are not a cat
-                    <textarea name="textarea" cols="30" rows="10" placeholder="Meow meow meow"></textarea>
-                </label>
-
-                <input type="submit" value="Check if I am a cat">
-
-            </form>
-        </section>
+        
+        <h1 id="what-is-chus-css" style="margin-bottom: 0;">What is chus.css?</h1>
+        <span style="color: #969696; top: -30px;">1st January 2024 / 2,504 views</span>
+        <p>A classless light solution to my CSS skill issues as a backend developer, enabling me to build visually appealing
+            websites with a unique touch of personal design flair, or at least, I believe so.</p>
+        <p>Inspired on <a href="https://watercss.kognise.dev/">water.css</a>, <a
+                href="https://simplecss.org/">simple.css</a>, <a href="https://github.com/dhg/Skeleton">skeleton</a> and
+            <a href="https://www.theminimalists.com/">theminimalists.com</a>.
+        </p>
+        <!--Disclaimer-->
+        <p class="notice"><strong>Disclaimer:</strong> I am not a frontend developer. I dont know what I'm doing at all.
+        </p>
+        <h2>Layout and basics</h2>
+        <p>The layout is based on a 600px width body that contains a main that expands his height to the top and bottom
+            of the viewport. The idea is letting the lateral sides absolutely CLEAR, forcing me to craft a minimal
+            beauty mobile first design.</p>
+        <p>Colors, spacing and typography are set to my personal taste after reviewing others CSS frameworks, like the
+            ones mentioned above.</p>
+        <h2>Buttons</h2>
+        <p>Simple. One is active, the other is disabled. On hover, they have 50% of opacity.</p>
+        <button>Active</button>
+        <button disabled>Disabled</button>
+        <h2>Lists</h2>
+        <p>No difference</p>
+        <ul>
+            <li>Zapabunga!</li>
+            <li>Petrocombo!</li>
+            <li>Treparamas!</li>
+            <li>Catalejo!</li>
+            <li>Mozirrante!</li>
+        </ul>
+        <h2>Tables</h2>
+        <p>A table with columns and rows</p>
+        <table class="full">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Animal</th>
+                    <th style="text-align: end;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pelusilla</td>
+                    <td>Cat</td>
+                    <td style="text-align: end;">
+                        <a href="">✏️</a>
+                        <a href="">❌</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bolo</td>
+                    <td>Dog</td>
+                    <td style="text-align: end;">
+                        <a href="">✏️</a>
+                        <a href="">❌</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trocito</td>
+                    <td>Rabbit</td>
+                    <td style="text-align: end;">
+                        <a href="">✏️</a>
+                        <a href="">❌</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cosita</td>
+                    <td>Ferret</td>
+                    <td style="text-align: end;">
+                        <a href="">✏️</a>
+                        <a href="">❌</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Juan</td>
+                    <td>Guinea Pig</td>
+                    <td style="text-align: end;">
+                        <a href="">✏️</a>
+                        <a href="">❌</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Grids</h2>
+        <p>I usually use them</p>
+        <div class="grid">
+            <img src="https://picsum.photos/1280/720" alt="">
+            <img src="https://picsum.photos/1600/900" alt="">
+            <img src="https://picsum.photos/1366/768" alt="">
+            <img src="https://picsum.photos/1152/648" alt="">
+            <img src="https://picsum.photos/1024/576" alt="">
+            <img src="https://picsum.photos/960/540" alt="">
+        </div>
+        <h2>Forms</h2>
+        <p>Inputs should be inside labels. Forms have a flex display and a gap of 0.8rem.</p>
+        <form onsubmit="return false;">
+            <label for="text">
+                Favourite food
+                <input type="text" name="text" placeholder="Cookies, bananas, sand...">
+            </label>
+            <label for="textarea">
+                Prove you are not a cat
+                <textarea name="textarea" cols="30" rows="10" placeholder="Meow meow meow"></textarea>
+            </label>
+        </form>
+        <h2>Extra classes</h2>
+        <p>There are some extra classes I realized I needed while building interfaces.</p>
+        <h3>.full</h3>
+        <p>It applies a width of 100% to the element. Useful for buttons, tables or elements with flex display.</p>
+        <button class="full">Button with .full class</button>
+        <h3>.center</h3>
+        <p>My personal favourite way of centering elements. It applies <em>display: flex, justify-content: center and
+                align-items: center.</em></p>
+        <h3>.notice</h3>
+        <p>It applies a background color, a border and a padding indicating a notice.</p>
+        <p class="notice">This is a notice</p>
     </main>
-
-    <footer>
+    <footer style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 80px;">
         <a href="">Privacy</a>
         <span>© Copyright 2024</span>
     </footer>
