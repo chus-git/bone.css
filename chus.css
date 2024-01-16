@@ -2,31 +2,72 @@
 
     color-scheme: light dark;
 
+    /* Colors */
+
     --white: #ffffff;
-    --dark-white: #efefef;
-    --light-gray: #cecdcd;
-    --gray: #727272;
-    --dark-gray: #4f4f4f;
-    --light-black: #222222;
+    --white-dark: #f5f5f5;
+    --white-darker: #e3e3e3;
+
+    --gray-lighter: #cdcdcd;
+    --gray-light: #b7b7b7;
+    --gray: #808080;
+    --gray-dark: #414141;
+    --gray-darker: #2f2f2f;
+
+    --black-lighter: #222222;
+    --black-light: #1a1a1a;
     --black: #111111;
 
+    --primary: #6c6ad6;
+
     --background-color: var(--white);
-    --text-color: var(--black);
-    --button-background-color: var(--black);
+    --text-color: var(--black-light);
+    --button-background-color: var(--black-light);
+    --button-background-color-hover: var(--primary);
     --button-color: var(--white);
-    --input-background-color: var(--dark-white);
-    --separator-color: var(--dark-white);
-    --element-background: var(--dark-white);
-    --border-color: var(--light-gray);
+    --button-color-hover: var(--white);
+    --input-background-color: var(--white-darker);
+    --element-background: var(--white-darker);
+    --border-color: var(--gray-lighter);
+    --scrollbar-background: var(--white-darker);
+    --scrollbar-color: var(--gray-light);
+    --scrollbar-color-hover: var(--gray);
+    --outline-color: var(--black-light);
+    --table-header-background: var(--gray-lighter);
+    --table-odd-row-background: var(--white-dark);
+    --table-even-row-background: var(--white-darker);
 
     --border-radius: 0.4rem;
-    
 
     --width: 600px;
 
 }
 
-/* Restyle elements */
+@media (prefers-color-scheme: dark) {
+
+    :root {
+
+        --background-color: var(--black);
+        --text-color: var(--white-dark);
+        --button-background-color: var(--white-dark);
+        --button-background-color-hover: var(--primary);
+        --button-color: var(--black-light);
+        --button-color-hover: var(--white);
+        --input-background-color: var(--black-lighter);
+        --element-background: var(--black-lighter);
+        --border-color: var(--gray-dark);
+        --scrollbar-background: var(--black-lighter);
+        --scrollbar-color: var(--gray-dark);
+        --scrollbar-color-hover: var(--gray);
+        --outline-color: var(--white-dark);
+        --table-header-background: var(--gray-darker);
+        --table-odd-row-background: var(--black-light);
+        --table-even-row-background: var(--black-lighter);
+
+    }
+
+}
+
 * {
     box-sizing: border-box;
 }
@@ -46,23 +87,23 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
     line-height: 1.5;
     background-color: var(--background-color);
+    -moz-osx-font-smoothing: inherit;
+    -webkit-font-smoothing: inherit;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
     max-width: var(--width);
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
 }
 
 main {
+    display: block;
     width: 100%;
     flex: 1;
-}
-
-section {
-    width: 100%;
-    margin: 0.5rem 0;
 }
 
 /* Headings */
@@ -75,6 +116,7 @@ h5,
 h6 {
     font-weight: 600;
     margin: 2rem 0 1rem 0;
+    text-wrap: balance;
 }
 
 h1 {
@@ -100,14 +142,13 @@ input[type="submit"] {
     padding: 10px 20px;
     transition: background ease-in-out 0.2s;
     transition: all ease-in-out 0.2s;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-font-smoothing: inherit;
 }
 
 button:hover,
 .button:hover,
 input[type="submit"]:hover {
-    opacity: 0.8;
+    background-color: var(--primary);
+    color: var(--button-color-hover);
 }
 
 button:disabled,
@@ -115,29 +156,49 @@ button:disabled,
 input[type="submit"]:disabled {
     opacity: 0.5;
     cursor: default;
+    background-color: var(--button-background-color);
 }
 
 /* Tables */
 
 table {
     border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead tr th {
+    background: var(--table-header-background);
+    font-weight: 600;
 }
 
 th,
 td {
-    padding: 7px 12px;
+    padding: 9px 15px;
     text-align: left;
-    border-bottom: 1px solid var(--separator-color);
 }
 
-th:first-child,
-td:first-child {
-    padding-left: 0;
+tbody tr:nth-of-type(even) {
+    background-color: var(--table-even-row-background);
 }
 
-th:last-child,
-td:last-child {
-    padding-right: 0;
+tbody tr:nth-of-type(odd) {
+    background-color: var(--table-odd-row-background);
+}
+
+tr th:first-child {
+    border-radius: var(--border-radius) 0 0 0;
+}
+
+tr th:last-child {
+    border-radius: 0 var(--border-radius) 0 0;
+}
+
+tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 var(--border-radius);
+}
+
+tbody tr:last-child td:last-child {
+    border-radius: 0 0 var(--border-radius) 0;
 }
 
 /* Forms */
@@ -145,7 +206,7 @@ td:last-child {
 form {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 input,
@@ -157,34 +218,88 @@ textarea {
     padding: 10px 12px;
     font: inherit;
     font-size: 15px;
-    transition: all 0.2s;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-font-smoothing: inherit;
     resize: none;
+    overflow: auto;
 }
 
 input[type="file"] {
     display: none;
 }
 
+input:focus-visible,
+textarea:focus-visible {
+    outline: var(--outline-color) solid 2px;
+    box-shadow: none;
+}
+
 label {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 img {
     border-radius: var(--border-radius);
+    border-style: none;
     width: 100%;
 }
 
 a {
     color: inherit;
+    background-color: transparent;
+    transition: color 0.1s ease-in-out;
     text-decoration: none;
 }
 
 p a {
     text-decoration: underline;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+p {
+    text-wrap: pretty;
+}
+
+
+
+b,
+strong {
+    font-weight: 600;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: var(--scrollbar-background);
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-color-hover);
 }
 
 /* Classes */
@@ -205,10 +320,15 @@ p a {
     align-items: center;
 }
 
-.notice {
+.note {
     background: var(--element-background);
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1rem;
     margin: 1.5rem 0;
+}
+
+.bordered {
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
