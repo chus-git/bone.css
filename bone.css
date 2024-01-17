@@ -36,10 +36,15 @@
     --table-even-row-background: var(--white-darker);
     --code-background: var(--white-dark);
     --code-border-color: var(--white-darker);
+    --separator-color: var(--white-darker);
 
     --border-radius: 8px;
 
-    --width: 600px;
+    --max-width: 600px;
+
+    --margin: 20px;
+
+    --scrollbar-width: 18px;
 
 }
 
@@ -60,11 +65,12 @@
         --scrollbar-color: var(--gray-dark);
         --scrollbar-color-hover: var(--gray);
         --outline-color: var(--white-dark);
-        --table-header-background: var(--gray-darker);
+        --table-header-background: var(--gray-dark);
         --table-odd-row-background: var(--black-light);
         --table-even-row-background: var(--black-lighter);
         --code-background: var(--black-light);
         --code-border-color: var(--gray-darker);
+        --separator-color: var(--black-lighter);
 
     }
 
@@ -83,9 +89,8 @@ body {
 }
 
 html {
-    padding: 0 1rem;
     color: var(--text-color);
-    font-size: 1.15rem;
+    font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
     line-height: 1.5;
     background-color: var(--background-color);
@@ -97,7 +102,6 @@ html {
 }
 
 body {
-    max-width: var(--width);
     width: 100%;
     min-height: 100dvh;
     margin: 0;
@@ -165,7 +169,6 @@ input[type="submit"]:disabled {
 
 table {
     border-collapse: collapse;
-    overflow: hidden;
 }
 
 thead tr th {
@@ -185,22 +188,6 @@ tbody tr:nth-of-type(even) {
 
 tbody tr:nth-of-type(odd) {
     background-color: var(--table-odd-row-background);
-}
-
-tr th:first-child {
-    border-radius: var(--border-radius) 0 0 0;
-}
-
-tr th:last-child {
-    border-radius: 0 var(--border-radius) 0 0;
-}
-
-tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 var(--border-radius);
-}
-
-tbody tr:last-child td:last-child {
-    border-radius: 0 0 var(--border-radius) 0;
 }
 
 /* Forms */
@@ -250,7 +237,7 @@ img {
 a {
     color: inherit;
     background-color: transparent;
-    transition: color 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     text-decoration: none;
 }
 
@@ -288,8 +275,8 @@ time {
     background: var(--code-background);
     border: solid 2px var(--code-border-color);
     border-radius: 6px;
-    font-size: 1em;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.1;
     padding: 1rem;
     margin: 1.5rem 0;
     font-size: 17px;
@@ -328,14 +315,12 @@ kbd {
 
 ::-webkit-scrollbar-track-piece {
     background-color: var(--scrollbar-background);
-    border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-color);
     outline: none;
     border: none;
-    border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -343,6 +328,14 @@ kbd {
 }
 
 /* Classes */
+
+footer,
+main,
+header,
+.boned {
+    width: 100%;
+    padding: 0 max(calc((100vw - var(--max-width) - var(--scrollbar-width)) / 2), calc(var(--margin)));
+}
 
 .grid {
     display: grid;
@@ -369,6 +362,8 @@ kbd {
 }
 
 .bordered {
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     overflow: hidden;
+    overflow-x: auto;
 }
