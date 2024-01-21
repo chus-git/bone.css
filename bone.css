@@ -257,6 +257,12 @@ label {
     gap: 0.5rem;
 }
 
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Images */
+
 img {
     border-radius: var(--border-radius);
     border-style: none;
@@ -269,6 +275,8 @@ figcaption {
     margin: 0.5rem 0;
     color: var(--gray);
 }
+
+/* Anchors */
 
 a {
     color: inherit;
@@ -285,6 +293,8 @@ a:hover {
     color: var(--primary);
 }
 
+/* Text */
+
 p {
     text-wrap: pretty;
 }
@@ -292,11 +302,6 @@ p {
 b,
 strong {
     font-weight: 600;
-}
-
-button,
-select {
-    text-transform: none;
 }
 
 /* Buttons */
@@ -354,6 +359,11 @@ input[type="submit"]:hover path {
     fill: var(--button-color-hover);
 }
 
+button,
+select {
+    text-transform: none;
+}
+
 /* code */
 
 pre {
@@ -391,10 +401,6 @@ p code {
     border-radius: var(--border-radius);
     color: var(--text-color);
     padding: 2px 4px;
-}
-
-:focus:not(:focus-visible) {
-    outline: none;
 }
 
 /* Scroll bar */
