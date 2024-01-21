@@ -16,12 +16,20 @@
     --black-light: #1a1a1a;
     --black: #111111;
 
-    --primary: #e55e9c;
+    --primary: #dd458b;
+
+    --border-radius: 8px;
+    --max-width: 500px;
+    --margin: 20px;
+    --scrollbar-width: 18px;
+
+    /* prefers-color-scheme: light */
 
     --background-color: var(--white);
     --text-color: var(--black-light);
+    --text-color-inverse: var(--white);
     --button-background-color: var(--black-light);
-    --button-background-color-hover: var(--gray-dark);
+    --button-background-color-hover: var(--primary);
     --button-color: var(--white);
     --button-color-hover: var(--white);
     --input-background-color: var(--white-darker);
@@ -34,17 +42,10 @@
     --table-header-background: var(--gray-lighter);
     --table-odd-row-background: var(--white-dark);
     --table-even-row-background: var(--white-darker);
-    --code-background: var(--white-dark);
-    --code-border-color: var(--white-darker);
+    --code-background: var(--black-lighter);
+    --code-border-color: var(--gray-dark);
+    --code-color: var(--white);
     --separator-color: var(--white-darker);
-
-    --border-radius: 8px;
-
-    --max-width: 600px;
-
-    --margin: 20px;
-
-    --scrollbar-width: 18px;
 
 }
 
@@ -54,10 +55,11 @@
 
         --background-color: var(--black);
         --text-color: var(--white-dark);
+        --text-color-inverse: var(--black);
         --button-background-color: var(--white-dark);
-        --button-background-color-hover: var(--gray-lighter);
+        --button-background-color-hover: var(--primary);
         --button-color: var(--black-light);
-        --button-color-hover: var(--white-dark);
+        --button-color-hover: var(--white);
         --input-background-color: var(--black-lighter);
         --element-background: var(--black-lighter);
         --border-color: var(--gray-dark);
@@ -70,10 +72,63 @@
         --table-even-row-background: var(--black-lighter);
         --code-background: var(--black-light);
         --code-border-color: var(--gray-darker);
+        --code-color: var(--white);
         --separator-color: var(--black-lighter);
 
     }
 
+}
+
+/* For switching manually to light-mode */
+
+.theme-light {
+    --background-color: var(--white);
+    --text-color: var(--black-light);
+    --text-color-inverse: var(--white);
+    --button-background-color: var(--black-light);
+    --button-background-color-hover: var(--primary);
+    --button-color: var(--white);
+    --button-color-hover: var(--white);
+    --input-background-color: var(--white-darker);
+    --element-background: var(--white-darker);
+    --border-color: var(--gray-lighter);
+    --scrollbar-background: var(--white-darker);
+    --scrollbar-color: var(--gray-light);
+    --scrollbar-color-hover: var(--gray);
+    --outline-color: var(--black-light);
+    --table-header-background: var(--gray-lighter);
+    --table-odd-row-background: var(--white-dark);
+    --table-even-row-background: var(--white-darker);
+    --code-background: var(--black-light);
+    --code-border-color: var(--gray-darker);
+    --code-color: var(--white);
+    --separator-color: var(--white-darker);
+}
+
+/* For switching manually to dark-mode */
+
+.theme-dark {
+    --background-color: var(--black);
+    --text-color: var(--white-dark);
+    --text-color-inverse: var(--black);
+    --button-background-color: var(--white-dark);
+    --button-background-color-hover: var(--primary);
+    --button-color: var(--black-light);
+    --button-color-hover: var(--white);
+    --input-background-color: var(--black-lighter);
+    --element-background: var(--black-lighter);
+    --border-color: var(--gray-dark);
+    --scrollbar-background: var(--black-lighter);
+    --scrollbar-color: var(--gray-dark);
+    --scrollbar-color-hover: var(--gray);
+    --outline-color: var(--white-dark);
+    --table-header-background: var(--gray-dark);
+    --table-odd-row-background: var(--black-light);
+    --table-even-row-background: var(--black-lighter);
+    --code-background: var(--black-light);
+    --code-border-color: var(--gray-darker);
+    --code-color: var(--white);
+    --separator-color: var(--black-lighter);
 }
 
 * {
@@ -89,11 +144,9 @@ body {
 }
 
 html {
-    color: var(--text-color);
     font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
     line-height: 1.5;
-    background-color: var(--background-color);
     -moz-osx-font-smoothing: inherit;
     -webkit-font-smoothing: inherit;
     scroll-behavior: smooth;
@@ -102,9 +155,11 @@ html {
 }
 
 body {
+    background-color: var(--background-color);
     width: 100%;
     min-height: 100dvh;
     margin: 0;
+    color: var(--text-color);
 }
 
 main {
@@ -127,42 +182,16 @@ h6 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+}
+
+h1:before {
+    content: "# ";
+    color: var(--primary);
 }
 
 h2 {
     font-size: 2rem;
-}
-
-/* Buttons */
-
-button,
-.button,
-input[type="submit"] {
-    background: var(--button-background-color);
-    border: none;
-    border-radius: var(--border-radius);
-    color: var(--button-color);
-    cursor: pointer;
-    font: inherit;
-    line-height: normal;
-    padding: 10px 20px;
-    transition: background ease-in-out 0.2s;
-    transition: all ease-in-out 0.2s;
-}
-
-button:hover,
-.button:hover,
-input[type="submit"]:hover {
-    background-color: var(--button-background-color-hover);
-}
-
-button:disabled,
-.button:disabled,
-input[type="submit"]:disabled {
-    opacity: 0.5;
-    cursor: default;
-    background-color: var(--button-background-color);
 }
 
 /* Tables */
@@ -204,6 +233,7 @@ textarea {
     background-color: var(--input-background-color);
     border: none;
     border-radius: var(--border-radius);
+    border: solid 2px var(--border-color);
     padding: 10px 12px;
     font: inherit;
     font-size: 15px;
@@ -234,6 +264,12 @@ img {
     max-width: 100%;
 }
 
+figcaption {
+    text-align: center;
+    margin: 0.5rem 0;
+    color: var(--gray);
+}
+
 a {
     color: inherit;
     background-color: transparent;
@@ -243,10 +279,6 @@ a {
 
 p a {
     text-decoration: underline;
-}
-
-a:visited {
-    color: inherit;
 }
 
 a:hover {
@@ -267,18 +299,76 @@ select {
     text-transform: none;
 }
 
+/* Buttons */
+
+button,
+.button,
+input[type="submit"] {
+    background: var(--button-background-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--button-color);
+    cursor: pointer;
+    font: inherit;
+    line-height: normal;
+    padding: 10px 16px;
+    transition: all ease-in-out 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+button:hover,
+.button:hover,
+input[type="submit"]:hover {
+    background-color: var(--button-background-color-hover);
+    color: var(--button-color-hover);
+}
+
+button:disabled,
+.button:disabled,
+input[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background-color: var(--button-background-color);
+}
+
+button svg,
+.button svg,
+input[type="submit"] svg {
+    height: 1.2em;
+    width: 1.2em;
+}
+
+button path,
+.button path,
+input[type="submit"] path {
+    fill: var(--button-color);
+    transition: fill ease-in-out 0.2s;
+}
+
+button:hover path,
+.button:hover path,
+input[type="submit"]:hover path {
+    fill: var(--button-color-hover);
+}
+
 /* code */
+
+pre {
+    background: transparent !important;
+}
 
 code,
 samp,
 time {
     background: var(--code-background);
-    border: solid 2px var(--code-border-color);
+    border: solid 2px var(--border-color);
+    color: var(--code-color);
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 15px !important;
     line-height: 1.1;
-    padding: 1rem;
-    margin: 1.5rem 0;
     font-size: 17px;
 }
 
@@ -294,7 +384,8 @@ var {
     font-family: monospace;
 }
 
-kbd {
+kbd,
+p code {
     font-family: monospace;
     background: var(--element-background);
     border-radius: var(--border-radius);
@@ -309,8 +400,8 @@ kbd {
 /* Scroll bar */
 
 ::-webkit-scrollbar {
-    width: 1rem;
-    height: 1rem;
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -329,17 +420,17 @@ kbd {
 
 /* Classes */
 
-footer,
+body>footer,
 main,
-header,
+body>header,
 .boned {
     width: 100%;
-    padding: 0 max(calc((100vw - var(--max-width) - var(--scrollbar-width)) / 2), calc(var(--margin)));
+    padding: 0 max(calc((100% - var(--max-width)) / 2), var(--margin));
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 10px;
 }
 
@@ -366,4 +457,20 @@ header,
     border-radius: var(--border-radius);
     overflow: hidden;
     overflow-x: auto;
+}
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .boned {
+        padding: 0 var(--margin);
+    }
+
 }
